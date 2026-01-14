@@ -1,17 +1,27 @@
+## --- Android/Java Build Artifacts ---
+build/
+bin/
+gen/
+out/
+.gradle/
+.externalNativeBuild/
+.cxx/
+
+## --- IDE Settings (Android Studio/IntelliJ) ---
+.idea/
+
+# Individual file patterns you had:
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-/.idea/deviceManager.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.iws
+*.ipr
+
+## --- Local/Sensitive Information ---
 local.properties
+
+## --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+
+## --- Specific Tooling ---
+/captures/
 .idea/**/copilot.data.migration.*.xml
