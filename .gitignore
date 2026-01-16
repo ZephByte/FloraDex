@@ -25,3 +25,4 @@ Thumbs.db
 ## --- Specific Tooling ---
 /captures/
 .idea/**/copilot.data.migration.*.xml
+.kotlin/
