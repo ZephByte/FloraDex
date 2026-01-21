@@ -1,4 +1,4 @@
-package org.floradex.app.ui.theme
+package org.floradex.app.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

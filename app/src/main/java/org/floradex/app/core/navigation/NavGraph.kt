@@ -1,11 +1,11 @@
-package org.floradex.app.navigation
+package org.floradex.app.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import org.floradex.app.home.HomeView
-import org.floradex.app.identifier.IdentifierView
+import org.floradex.app.feature.home.HomeView
+import org.floradex.app.feature.identifier.IdentifierView
 
 @Composable
 fun AppNavGraph() {

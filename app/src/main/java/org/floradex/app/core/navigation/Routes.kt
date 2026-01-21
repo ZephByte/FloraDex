@@ -1,4 +1,4 @@
-package org.floradex.app.navigation
+package org.floradex.app.core.navigation
 
 import kotlinx.serialization.Serializable
 

@@ -1,4 +1,4 @@
-package org.floradex.app.ui.theme
+package org.floradex.app.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

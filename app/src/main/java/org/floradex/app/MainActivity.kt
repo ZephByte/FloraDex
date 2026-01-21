@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
-import org.floradex.app.navigation.AppNavGraph
-import org.floradex.app.ui.theme.FloraDexTheme
+import org.floradex.app.core.navigation.AppNavGraph
+import org.floradex.app.designsystem.theme.FloraDexTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

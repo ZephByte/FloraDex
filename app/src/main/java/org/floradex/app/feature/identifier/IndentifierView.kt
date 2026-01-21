@@ -1,4 +1,4 @@
-package org.floradex.app.home
+package org.floradex.app.feature.identifier
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,18 +9,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import org.floradex.app.navigation.IdentifierScreen
+import org.floradex.app.core.navigation.HomeScreen
 
 @Composable
-fun HomeView(navController: NavController) {
+fun IdentifierView(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Welcome to the Home View")
-        Button(onClick = { navController.navigate(IdentifierScreen) }) {
-            Text(text = "Go to Identifier")
+        Text("Welcome to the Identifier View")
+        Button(onClick = { navController.navigate(HomeScreen) }) {
+            Text(text = "Go Home")
         }
     }
 }

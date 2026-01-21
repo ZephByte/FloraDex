@@ -1,6 +1,5 @@
-package org.floradex.app.ui.theme
+package org.floradex.app.designsystem.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
