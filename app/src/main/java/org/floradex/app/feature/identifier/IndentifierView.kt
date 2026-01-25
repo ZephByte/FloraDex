@@ -12,7 +12,10 @@ import androidx.navigation.NavController
 import org.floradex.app.core.navigation.HomeScreen
 
 @Composable
-fun IdentifierView(navController: NavController) {
+fun IdentifierView(
+    navController: NavController,
+    onGoToSettingsClick: () -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -21,6 +24,10 @@ fun IdentifierView(navController: NavController) {
         Text("Welcome to the Identifier View")
         Button(onClick = { navController.navigate(HomeScreen) }) {
             Text(text = "Go Home")
+        }
+
+        Button(onClick = { onGoToSettingsClick() }) {
+            Text(text = "Go To Settings")
         }
     }
 }
