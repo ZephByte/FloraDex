@@ -8,19 +8,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
-import org.floradex.app.core.navigation.IdentifierScreen
+import androidx.compose.ui.tooling.preview.Preview
+import org.floradex.app.designsystem.theme.FloraDexTheme
 
 @Composable
-fun HomeView(navController: NavController) {
+fun HomeView(
+    onGoToIdentifierClick: () -> Unit,
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("Welcome to the Home View")
-        Button(onClick = { navController.navigate(IdentifierScreen) }) {
+        Button(onClick = onGoToIdentifierClick) {
             Text(text = "Go to Identifier")
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomeViewPreview() {
+    FloraDexTheme {
+        HomeView(
+            onGoToIdentifierClick = { }
+        )
     }
 }
