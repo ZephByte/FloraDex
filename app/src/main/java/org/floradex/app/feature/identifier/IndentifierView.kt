@@ -19,7 +19,7 @@ import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
 import org.floradex.app.core.permissions.CameraPermission
 import org.floradex.app.core.permissions.PermissionManager
-import org.floradex.app.designsystem.PermissionDialogue
+import org.floradex.app.designsystem.PermissionRationaleDialogue
 import org.floradex.app.designsystem.theme.FloraDexTheme
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -38,7 +38,7 @@ fun IdentifierView(
     )
 
     if (!permissionState.status.isGranted && showPermissionDialogue) {
-        PermissionDialogue(
+        PermissionRationaleDialogue(
             permission = uiPermission,
             isPermanentlyDenied = !permissionState.status.shouldShowRationale && permissionRequested,
             onDismiss = { showPermissionDialogue = false },

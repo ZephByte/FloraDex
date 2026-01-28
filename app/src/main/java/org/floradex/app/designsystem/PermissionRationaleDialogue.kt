@@ -15,7 +15,7 @@ import org.floradex.app.core.permissions.LocationPermission
 import org.floradex.app.core.permissions.NotificationPermission
 
 @Composable
-fun PermissionDialogue(
+fun PermissionRationaleDialogue(
     permission: FloraDexPermission,
     isPermanentlyDenied: Boolean,
     onDismiss: () -> Unit,
@@ -62,10 +62,10 @@ fun PermissionDialogue(
 
 @Preview
 @Composable
-fun CameraPermissionPreview() {
+fun CameraPermissionRationalePreview() {
     val permission = CameraPermission()
 
-    PermissionDialogue(
+    PermissionRationaleDialogue(
         permission = permission,
         isPermanentlyDenied = false,
         onDismiss = {},
@@ -76,10 +76,10 @@ fun CameraPermissionPreview() {
 
 @Preview
 @Composable
-fun CameraPermissionPreviewPermanentlyDenied() {
+fun CameraPermissionRationalePreviewPermanentlyDenied() {
     val permission = CameraPermission()
 
-    PermissionDialogue(
+    PermissionRationaleDialogue(
         permission = permission,
         isPermanentlyDenied = true,
         onDismiss = {},
@@ -90,10 +90,10 @@ fun CameraPermissionPreviewPermanentlyDenied() {
 
 @Preview
 @Composable
-fun LocationPermissionPreview() {
+fun LocationPermissionRationalePreview() {
     val permission = LocationPermission()
 
-    PermissionDialogue(
+    PermissionRationaleDialogue(
         permission = permission,
         isPermanentlyDenied = false,
         onDismiss = {},
@@ -104,10 +104,10 @@ fun LocationPermissionPreview() {
 
 @Preview
 @Composable
-fun InternetPermissionPreview() {
+fun InternetPermissionRationalePreview() {
     val permission = InternetPermission()
 
-    PermissionDialogue(
+    PermissionRationaleDialogue(
         permission = permission,
         isPermanentlyDenied = false,
         onDismiss = {},
@@ -118,10 +118,10 @@ fun InternetPermissionPreview() {
 
 @Preview
 @Composable
-fun NotificationPermissionPreview() {
+fun NotificationPermissionRationalePreview() {
     val permission = NotificationPermission()
 
-    PermissionDialogue(
+    PermissionRationaleDialogue(
         permission = permission,
         isPermanentlyDenied = false,
         onDismiss = {},
