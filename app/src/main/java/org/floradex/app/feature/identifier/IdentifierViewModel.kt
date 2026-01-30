@@ -9,5 +9,10 @@ import javax.inject.Inject
 class IdentifierViewModel @Inject constructor(
     private val permissionManager: PermissionManager
 ) : ViewModel() {
-    // Business logic for the identifier screen will go here.
+
+    fun onGoToSettingsClick()
+    {
+        permissionManager.launchPermissionSettings()
+    }
+
 }

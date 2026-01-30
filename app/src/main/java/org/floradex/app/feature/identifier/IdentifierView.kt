@@ -26,16 +26,13 @@ import org.floradex.app.designsystem.theme.FloraDexTheme
 @Composable
 fun IdentifierView(
     onGoHomeClick: () -> Unit,
+    onGoToSettingsClick: () -> Unit
 ) {
 
     var showPermissionDialogue by rememberSaveable { mutableStateOf(true) }
     var permissionRequested by rememberSaveable { mutableStateOf(false) }
     val uiPermission = CameraPermission()
     val permissionState = rememberPermissionState(uiPermission.permission)
-
-    val permissionManager = PermissionManager(
-        context = androidx.compose.ui.platform.LocalContext.current
-    )
 
     if (!permissionState.status.isGranted && showPermissionDialogue) {
         PermissionRationaleDialogue(
@@ -48,7 +45,7 @@ fun IdentifierView(
                 showPermissionDialogue = false
             },
             onGoToSettingsClick = {
-                permissionManager.launchPermissionSettings()
+                onGoToSettingsClick()
                 showPermissionDialogue = false
             }
         )
@@ -77,7 +74,8 @@ fun IdentifierView(
 fun IdentifierViewPreview() {
     FloraDexTheme {
         IdentifierView(
-            onGoHomeClick = { }
+            onGoHomeClick = { },
+            onGoToSettingsClick = { }
         )
     }
 }

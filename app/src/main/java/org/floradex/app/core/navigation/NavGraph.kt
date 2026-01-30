@@ -31,7 +31,8 @@ fun AppNavGraph(
             IdentifierView(
                 onGoHomeClick = {
                     navController.navigate(HomeScreen)
-                }
+                },
+                onGoToSettingsClick = viewModel::onGoToSettingsClick
             )
         }
     }
