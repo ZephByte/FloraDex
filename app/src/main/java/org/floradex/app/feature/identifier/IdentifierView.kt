@@ -9,9 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import org.floradex.app.core.permissions.CameraPermission
-import org.floradex.app.core.permissions.LocationPermission
-import org.floradex.app.designsystem.PermissionHandler
+import org.floradex.app.core.permissions.FloraDexPermission
+import org.floradex.app.core.permissions.PermissionHandler
 import org.floradex.app.designsystem.theme.FloraDexTheme
 
 @Composable
@@ -20,7 +19,7 @@ fun IdentifierView(
     onGoToSettingsClick: () -> Unit
 ) {
     PermissionHandler(
-        permissions = listOf(CameraPermission(), LocationPermission()),
+        permissions = listOf(FloraDexPermission.Camera, FloraDexPermission.Location),
         onGoToSettingsClick = onGoToSettingsClick
     ) { state ->
         Column(
