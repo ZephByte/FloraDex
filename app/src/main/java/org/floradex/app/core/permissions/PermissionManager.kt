@@ -10,7 +10,6 @@ import javax.inject.Singleton
 
 interface IPermissionManager {
     fun launchPermissionSettings()
-    fun requestPermission(permission: FloraDexPermission)
 }
 
 @Singleton
@@ -23,9 +22,5 @@ class PermissionManager @Inject constructor(
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.data = Uri.fromParts("package", context.packageName, null)
         context.startActivity(intent)
-    }
-
-    override fun requestPermission(permission: FloraDexPermission) {
-
     }
 }
