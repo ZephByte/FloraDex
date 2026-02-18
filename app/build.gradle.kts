@@ -69,6 +69,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Permissions
+    implementation(libs.accompanist.permissions)
+
     // Navigation
     implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
