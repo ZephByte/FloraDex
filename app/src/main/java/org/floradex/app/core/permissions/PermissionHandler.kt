@@ -1,4 +1,4 @@
-package org.floradex.app.designsystem
+package org.floradex.app.core.permissions
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -14,7 +14,6 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.permissions.shouldShowRationale
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
-import org.floradex.app.core.permissions.FloraDexPermission
 
 data class PermissionHandlerState(
     val allGranted: Boolean,

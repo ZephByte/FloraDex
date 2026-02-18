@@ -1,4 +1,4 @@
-package org.floradex.app.designsystem
+package org.floradex.app.core.permissions
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -8,11 +8,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import org.floradex.app.core.permissions.CameraPermission
-import org.floradex.app.core.permissions.FloraDexPermission
-import org.floradex.app.core.permissions.InternetPermission
-import org.floradex.app.core.permissions.LocationPermission
-import org.floradex.app.core.permissions.NotificationPermission
 
 @Composable
 fun PermissionRationaleDialogue(
@@ -63,7 +58,7 @@ fun PermissionRationaleDialogue(
 @Preview
 @Composable
 fun CameraPermissionRationalePreview() {
-    val permission = CameraPermission()
+    val permission = FloraDexPermission.Camera
 
     PermissionRationaleDialogue(
         permission = permission,
@@ -77,7 +72,7 @@ fun CameraPermissionRationalePreview() {
 @Preview
 @Composable
 fun CameraPermissionRationalePreviewPermanentlyDenied() {
-    val permission = CameraPermission()
+    val permission = FloraDexPermission.Camera
 
     PermissionRationaleDialogue(
         permission = permission,
@@ -91,21 +86,7 @@ fun CameraPermissionRationalePreviewPermanentlyDenied() {
 @Preview
 @Composable
 fun LocationPermissionRationalePreview() {
-    val permission = LocationPermission()
-
-    PermissionRationaleDialogue(
-        permission = permission,
-        isPermanentlyDenied = false,
-        onDismiss = {},
-        onConfirm = {},
-        onGoToSettingsClick = {}
-    )
-}
-
-@Preview
-@Composable
-fun InternetPermissionRationalePreview() {
-    val permission = InternetPermission()
+    val permission = FloraDexPermission.Location
 
     PermissionRationaleDialogue(
         permission = permission,
@@ -119,7 +100,7 @@ fun InternetPermissionRationalePreview() {
 @Preview
 @Composable
 fun NotificationPermissionRationalePreview() {
-    val permission = NotificationPermission()
+    val permission = FloraDexPermission.Notification
 
     PermissionRationaleDialogue(
         permission = permission,

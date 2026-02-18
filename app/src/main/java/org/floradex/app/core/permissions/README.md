@@ -51,10 +51,10 @@ fun MyFeatureView(onGoToSettingsClick: () -> Unit) {
 
 `PermissionHandler` provides a `PermissionHandlerState` with:
 
-| Field | Type | Description |
-|---|---|---|
-| `allGranted` | `Boolean` | `true` when every listed permission is granted |
-| `launchPermissionRequest` | `() -> Unit` | Starts the sequential permission flow |
+| Field                     | Type         | Description                                    |
+|---------------------------|--------------|------------------------------------------------|
+| `allGranted`              | `Boolean`    | `true` when every listed permission is granted |
+| `launchPermissionRequest` | `() -> Unit` | Starts the sequential permission flow          |
 
 ## How the Flow Works
 
@@ -72,9 +72,9 @@ fun MyFeatureView(onGoToSettingsClick: () -> Unit) {
 
 ## Key Files
 
-| File | Purpose |
-|---|---|
-| `core/permissions/FloraDexPermission.kt` | Permission definitions (title, description, manifest string, icon) |
-| `core/permissions/PermissionManager.kt` | Opens app settings for permanently-denied permissions |
-| `designsystem/PermissionHandler.kt` | Reusable composable managing the full permission flow |
-| `designsystem/PermissionRationaleDialogue.kt` | The rationale AlertDialog UI |
+| File                                            | Purpose                                                            |
+|-------------------------------------------------|--------------------------------------------------------------------|
+| `core/permissions/FloraDexPermission.kt`        | Permission definitions (title, description, manifest string, icon) |
+| `core/permissions/PermissionManager.kt`         | Opens app settings for permanently-denied permissions              |
+| `core/permissions/PermissionHandler.kt`         | Reusable composable managing the full permission flow              |
+| `core/permissions/PermissionRationaleDialog.kt` | The rationale AlertDialog UI                                       |

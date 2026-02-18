@@ -7,53 +7,33 @@ import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.ui.graphics.vector.ImageVector
 
-interface FloraDexPermission {
+sealed interface FloraDexPermission {
     val title: String
     val description: String
     val permission: String
     val icon: ImageVector
-}
 
-class CameraPermission : FloraDexPermission {
-    override val title: String
-        get() = "Camera Permission"
-    override val description: String
-        get() = "This app needs access to your camera to take pictures of plants."
-    override val permission: String
-        get() = android.Manifest.permission.CAMERA
-    override val icon: ImageVector
-        get() = Icons.Default.Camera
-}
+    data object Camera : FloraDexPermission {
+        override val title = "Camera Permission"
+        override val description =
+            "This app needs access to your camera to take pictures of plants."
+        override val permission = android.Manifest.permission.CAMERA
+        override val icon = Icons.Default.Camera
+    }
 
-class LocationPermission : FloraDexPermission {
-    override val title: String
-        get() = "Location Permission"
-    override val description: String
-        get() = "This app needs access to your location to tag where photos were taken."
-    override val permission: String
-        get() = android.Manifest.permission.ACCESS_FINE_LOCATION
-    override val icon: ImageVector
-        get() = Icons.Default.LocationOn
-}
+    data object Location : FloraDexPermission {
+        override val title = "Location Permission"
+        override val description =
+            "This app needs access to your location to tag where plants were discovered."
+        override val permission = android.Manifest.permission.ACCESS_FINE_LOCATION
+        override val icon = Icons.Default.LocationOn
+    }
 
-class InternetPermission : FloraDexPermission {
-    override val title: String
-        get() = "Internet Permission"
-    override val description: String
-        get() = "This app needs access to the internet to identify plants."
-    override val permission: String
-        get() = android.Manifest.permission.INTERNET
-    override val icon: ImageVector
-        get() = Icons.Default.Wifi
-}
-
-class NotificationPermission : FloraDexPermission {
-    override val title: String
-        get() = "Notification Permission"
-    override val description: String
-        get() = "This app needs to send you notifications to remind you to water your plants."
-    override val permission: String
-        get() = android.Manifest.permission.POST_NOTIFICATIONS
-    override val icon: ImageVector
-        get() = Icons.Default.Notifications
+    data object Notification : FloraDexPermission {
+        override val title = "Notification Permission"
+        override val description =
+            "This app needs to send you notifications to..." // TODO Zeph: fill this in with correct description
+        override val permission = android.Manifest.permission.POST_NOTIFICATIONS
+        override val icon = Icons.Default.Notifications
+    }
 }
