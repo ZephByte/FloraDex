@@ -14,9 +14,13 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.permissions.shouldShowRationale
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withTimeoutOrNull
 
 data class PermissionHandlerState(
     val allGranted: Boolean,
+    val anyPermanentlyDenied: Boolean,
+    val permanentlyDeniedPermissions: List<FloraDexPermission>,
+    val deniedPermissions: List<FloraDexPermission>,
     val launchPermissionRequest: () -> Unit
 )
 
@@ -39,9 +43,11 @@ fun PermissionHandler(
     LaunchedEffect(waitingForResult) {
         if (!waitingForResult) return@LaunchedEffect
 
-        snapshotFlow {
-            multiplePermissionsState.permissions.map { it.status }
-        }.drop(1).first()
+        withTimeoutOrNull(5_000) {
+            snapshotFlow {
+                multiplePermissionsState.permissions.map { it.status }
+            }.drop(1).first()
+        }
 
         waitingForResult = false
 
@@ -83,9 +89,29 @@ fun PermissionHandler(
         }
     }
 
+    val permanentlyDeniedPermissions = permissions.filter { floraPerm ->
+        val perm = multiplePermissionsState.permissions
+            .find { it.permission == floraPerm.permission }
+        perm != null &&
+            !perm.status.isGranted &&
+            !perm.status.shouldShowRationale &&
+            perm.permission in requestedPermissions
+    }
+
+    val deniedPermissions = permissions.filter { floraPerm ->
+        val perm = multiplePermissionsState.permissions
+            .find { it.permission == floraPerm.permission }
+        perm != null &&
+            !perm.status.isGranted &&
+            floraPerm !in permanentlyDeniedPermissions
+    }
+
     content(
         PermissionHandlerState(
             allGranted = multiplePermissionsState.allPermissionsGranted,
+            anyPermanentlyDenied = permanentlyDeniedPermissions.isNotEmpty(),
+            permanentlyDeniedPermissions = permanentlyDeniedPermissions,
+            deniedPermissions = deniedPermissions,
             launchPermissionRequest = {
                 val firstUngrantedIndex = permissions.indexOfFirst { floraPerm ->
                     multiplePermissionsState.permissions
